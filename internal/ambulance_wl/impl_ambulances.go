@@ -1,15 +1,16 @@
 package ambulance_wl
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/javorkam/ambulance-webapi/internal/db_service"
-	"net/http"
 )
 
+// Kópia zakomentovanej časti z api_ambulances.go
 // CreateAmbulance - Saves new ambulance definition
 func (this *implAmbulancesAPI) CreateAmbulance(ctx *gin.Context) {
-	// get db service from context
 	value, exists := ctx.Get("db_service")
 	if !exists {
 		ctx.JSON(
@@ -80,11 +81,9 @@ func (this *implAmbulancesAPI) CreateAmbulance(ctx *gin.Context) {
 	}
 }
 
+// DeleteAmbulance - Deletes specific ambulance
 func (this *implAmbulancesAPI) DeleteAmbulance(ctx *gin.Context) {
-	ctx.AbortWithStatus(http.StatusNotImplemented)
-	// get db service from context
 	value, exists := ctx.Get("db_service")
-
 	if !exists {
 		ctx.JSON(
 			http.StatusInternalServerError,
