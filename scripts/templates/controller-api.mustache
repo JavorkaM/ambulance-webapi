@@ -19,7 +19,8 @@ type {{classname}} interface {
    {{nickname}}(ctx *gin.Context)
 
    {{/operation}}
- }
+}
+
 // partial implementation of {{classname}} - all functions must be implemented in add on files
 type impl{{classname}} struct {
 
@@ -34,6 +35,7 @@ func (this *impl{{classname}}) addRoutes(routerGroup *gin.RouterGroup) {
   routerGroup.Handle( http.Method{{httpMethod}}, "{{{path}}}", this.{{nickname}})
   {{/operation}}
 }
+
 // Copy following section to separate file, uncomment, and implement accordingly
 {{#operation}}
 // // {{nickname}} - {{{summary}}}{{#isDeprecated}}
